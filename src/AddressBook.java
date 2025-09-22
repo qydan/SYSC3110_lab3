@@ -19,7 +19,7 @@ public class AddressBook {
         }
     }
 
-    public void thisIsAMethod() {
+    public void thisIsAMethod2() {
         return;
     }
 
