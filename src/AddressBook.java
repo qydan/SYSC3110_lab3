@@ -13,7 +13,10 @@ public class AddressBook {
         }
     }
 
-    public void removeBuddy(BuddyInfo buddy) {
+    public void removeBuddy(int index) {
+        if (index >= 0 && index < buddies.size()) {
+            buddies.remove(index);
+        }
         buddies.remove(buddy);
     }
 
@@ -21,6 +24,7 @@ public class AddressBook {
         BuddyInfo buddy = new BuddyInfo("Tom", "Carleton", "613");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(buddy);
+        addressBook.removeBuddy(0);
+
     }
 }
