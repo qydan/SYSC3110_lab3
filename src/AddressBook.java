@@ -1,26 +1,21 @@
-import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
-public class AddressBook {
-    private final ArrayList<BuddyInfo> buddies;
+public class AddressBook extends DefaultListModel<BuddyInfo> {
 
     public AddressBook() {
-        this.buddies = new ArrayList<>();
+        super();
     }
 
     public void addBuddy(BuddyInfo buddy) {
         if (buddy != null) {
-            buddies.add(buddy);
+            addElement(buddy); // DefaultListModel handles notification to JList
         }
     }
 
     public void removeBuddy(int index) {
-        if (index >= 0 && index < buddies.size()) {
-            buddies.remove(index);
+        if (index >= 0 && index < getSize()) {
+            removeElementAt(index); // Notifies JList automatically
         }
-    }
-
-    public void thisIsAMethod2() {
-        return;
     }
 
     public static void main(String[] args) {
@@ -28,6 +23,5 @@ public class AddressBook {
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
         addressBook.removeBuddy(0);
-
     }
 }
